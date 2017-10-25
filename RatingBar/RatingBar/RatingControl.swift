@@ -10,6 +10,7 @@ import UIKit
 
 @IBDesignable  class RatingControl: UIStackView {
     //Mark: Properties
+    
     private var ratingButtons = [UIButton]()
     
     @IBInspectable var rating: Double = 0.0 {
@@ -71,6 +72,10 @@ import UIKit
         }
     }
     
+    public func getRating() -> Double{
+        return rating
+    }
+    
     //Mark: Private Methods
     private func setupButtons() {
         // clear any existing buttons
@@ -85,14 +90,14 @@ import UIKit
             let button = UIButton()
             button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
-
+            
             let ratingStar = Double(i + 1)
             if rating == ratingStar || rating > ratingStar {
-                button.setImage(fillImage, for: .normal)
+                button.setBackgroundImage(fillImage, for: .normal)
             } else if rating >= ratingStar - 0.5  && rating < ratingStar  {
-                button.setImage(halfImage, for: .normal)
+                button.setBackgroundImage(halfImage, for: .normal)
             } else {
-                button.setImage(emptyImage, for: .normal)
+                button.setBackgroundImage(emptyImage, for: .normal)
             }
             
             button.adjustsImageWhenHighlighted = false
@@ -105,17 +110,15 @@ import UIKit
     
     private func updateButtonSelectionStates(point: CGPoint) {
         let halfSize = starSize.width / 2
+        var ratingTemp = 0.0
         for (index, button) in ratingButtons.enumerated() {
             if button.frame.minX <= point.x && point.x <= (button.frame.maxX - halfSize) {
-                rating = Double(index + 1) - 0.5
-                button.setImage(halfImage, for: .normal)
+                ratingTemp = Double(index + 1) - 0.5
             }else if point.x >= (button.frame.maxX - halfSize) {
-                rating = Double(index + 1)
-                button.setImage(fillImage, for: .normal)
-            }else {
-                button.setImage(emptyImage, for: .normal)
+                ratingTemp = Double(index + 1)
             }
         }
+        
+        rating = ratingTemp
     }
-    
 }
