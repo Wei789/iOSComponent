@@ -10,31 +10,36 @@ import UIKit
 
 @IBDesignable  class RatingControl: UIStackView {
     //Mark: Properties
-    
+    var didRatingValueChage: ((_ value: Double) ->())?
     private var ratingButtons = [UIButton]()
     
     @IBInspectable var rating: Double = 0.0 {
         didSet {
             setupButtons()
+            didRatingValueChage?(rating)
         }
     }
+    
     @IBInspectable var fillImage: UIImage?
         {
         didSet {
             setupButtons()
         }
     }
+    
     @IBInspectable var halfImage: UIImage?
         {
         didSet {
             setupButtons()
         }
     }
+    
     @IBInspectable var emptyImage: UIImage? {
         didSet {
             setupButtons()
         }
     }
+    
     @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
         didSet {
             setupButtons()
