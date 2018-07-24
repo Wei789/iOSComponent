@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ROU-RU-8Bl">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="yPN-pc-97f">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ROU-RU-8Bl" customClass="PageViewController" customModule="TYSliderView" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WCz-kM-dPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-545" y="80"/>
+        </scene>
+        <!--Page Item View Controller-->
+        <scene sceneID="Ur2-W4-tM4">
+            <objects>
+                <viewController storyboardIdentifier="vc" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DWf-sN-aYy" customClass="PageItemViewController" customModule="TYSliderView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z4R-c5-BkU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dXz-RS-13e">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dXz-RS-13e" firstAttribute="leading" secondItem="IQb-cB-92T" secondAttribute="leading" id="144-IP-Czp"/>
+                            <constraint firstItem="dXz-RS-13e" firstAttribute="bottom" secondItem="IQb-cB-92T" secondAttribute="bottom" id="XZT-7t-dIJ"/>
+                            <constraint firstItem="dXz-RS-13e" firstAttribute="trailing" secondItem="IQb-cB-92T" secondAttribute="trailing" id="ayL-Qj-CbS"/>
+                            <constraint firstItem="dXz-RS-13e" firstAttribute="top" secondItem="z4R-c5-BkU" secondAttribute="top" id="kEK-eX-qbV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IQb-cB-92T"/>
+                    </view>
+                    <connections>
+                        <outlet property="bannerImageView" destination="dXz-RS-13e" id="LDp-jh-Oc1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e74-7h-zRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="206" y="80"/>
+        </scene>
+    </scenes>
+</document>
